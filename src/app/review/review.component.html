@@ -1,0 +1,29 @@
+<div class="reviews-section container mt-5">
+  <h2 class="text-center">Customer Reviews</h2>
+
+  
+  <!-- Scroll Buttons -->
+  <div class="scroll-buttons">
+    <button class="btn btn-primary left" (click)="scrollLeft()">←</button>
+    <button class="btn btn-primary right" (click)="scrollRight()">→</button>
+  </div>
+
+  <!-- Display Reviews -->
+  <div class="reviews-container" #reviewsContainer>
+    <div *ngFor="let review of reviews" class="review-card" (click)="viewReviewDetail(review.id)">
+      <div class="review-header">
+        <h5>{{ review.user }}</h5>
+        <div class="rating">
+          <span *ngFor="let i of [].constructor(review.rating); let idx = index" class="star">★</span>
+        </div>
+      </div>
+      <p class="review-comment">{{ review.comment }}</p>
+    </div>
+  </div>
+
+  <!-- Button to open review form -->
+  <div class="text-center" *ngIf="showbutton">
+    <button class="btn btn-primary" (click)="openReviewForm()">Write a Review</button>
+  </div>
+
+  

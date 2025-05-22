@@ -1,0 +1,121 @@
+/* Itineraries List Styles */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.loading-overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
+
+.alert.alert-danger {
+  background-color: #f8d7da;
+  color: #721c24;
+  border-color: #f5c6cb;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+/* Login Popup Styles */
+.login-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.popup-content h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.popup-content p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+.popup-content button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.popup-content button:hover {
+  background-color: #0056b3;
+}
+
+/* Itinerary Card Styles */
+.itinerary-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+  padding: 20px;
+  position: relative;
+}
+
+.itinerary-card:hover {
+  transform: scale(1.05);
+}
+
+.itinerary-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.itinerary-card p {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.itinerary-card .card-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.itinerary-card .card-actions button {
+  margin-left: 10px;
+}
+
+.itinerary-card .card-actions a {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+}
+
+.itinerary-card .card-actions a:hover {
+  text-decoration: underline;
+}
+
+.itinerary-card .card-actions button.btn-danger {
+  background-color: #dc3545;
+}
+
+.itinerary-card .card-actions button.btn-danger:hover {
+  background-color: #c82333;
+}

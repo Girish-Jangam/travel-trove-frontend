@@ -1,0 +1,43 @@
+<div class="card mb-4 shadow-sm">
+  <div class="card-body">
+    <h5 class="card-title">{{ itinerary.destination }}</h5>
+    <p class="card-text">
+      <strong>Start Date:</strong> {{ itinerary.startDate | date: 'mediumDate' }}<br>
+      <strong>End Date:</strong> {{ itinerary.endDate | date: 'mediumDate' }}<br>
+      <strong>Duration:</strong> {{ itinerary.duration }} days
+    </p>
+
+    <!-- Activities -->
+    <div *ngIf="itinerary.activities.length > 0">
+      <strong>Activities:</strong>
+      <ul>
+        <li *ngFor="let activity of itinerary.activities">{{ activity }}</li>
+      </ul>
+    </div>
+
+    <!-- Lodging -->
+    <div *ngIf="itinerary.lodging.length > 0">
+      <strong>Lodging:</strong>
+      <ul>
+        <li *ngFor="let lodging of itinerary.lodging">{{ lodging }}</li>
+      </ul>
+    </div>
+
+    <!-- Dining -->
+    <div *ngIf="itinerary.dining.length > 0">
+      <strong>Dining:</strong>
+      <ul>
+        <li *ngFor="let dining of itinerary.dining">{{ dining }}</li>
+      </ul>
+    </div>
+
+    <!-- Location-Specific Photo -->
+    <div class="text-center mt-3">
+      <img *ngIf="photoUrl" [src]="photoUrl" alt="Destination Photo" class="img-fluid rounded-circle" style="max-width: 200px;">
+      <div *ngIf="!photoUrl" class="text-center text-muted">No photo available</div>
+    </div>
+
+    <!-- Delete Button -->
+    <button class="btn btn-danger mt-3" (click)="deleteItinerary()">Delete Itinerary</button>
+  </div>
+</div>

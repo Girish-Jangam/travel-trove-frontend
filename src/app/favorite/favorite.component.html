@@ -1,0 +1,38 @@
+<div *ngIf="!authService.isAuthenticated()" class="no-auth-message">
+  <i class="bi bi-exclamation-circle"></i>
+  <p>Please log in to view your favorites.</p>
+  <a routerLink="/login" class="btn btn-primary">Login Now</a>
+</div>
+
+<div *ngIf="favorites.length === 0 && authService.isAuthenticated()" class="no-favorites-message">
+  <i class="bi bi-heartbreak"></i>
+  <p>No favorites added yet.</p>
+</div>
+
+<div class="container g-3 mb-3 " *ngIf="authService.isAuthenticated()">
+  <div class="row g-3 mt-50">
+    <div *ngFor="let card of favorites" class="col-12 col-sm-6 col-md-4">
+      <div class="card shadow">
+        <img
+          class="card-img-top"
+          [src]="'../../assets/IMAGES/' + card.photos[0]"
+          [alt]="card.id"
+        />
+        <i
+          class="bi"
+          [ngClass]="{
+            'bi-suit-heart-fill': isFavorite(card),
+            'bi-suit-heart': !isFavorite(card)
+          }"
+          (click)="toggleFavorite(card)"
+        ></i>
+        <div class="card-body">
+          <h6>{{ card.title }} | {{ card.id }}</h6>
+          <button class="btn btn-outline-dark btn-sm " (click)="loadProductDetails(card.id)">
+            View More
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

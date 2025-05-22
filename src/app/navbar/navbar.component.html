@@ -1,0 +1,140 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+  <div class="container-fluid">
+    <!-- Logo and Search Bar -->
+    <div class="d-flex align-items-center">
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        
+        Travel✈rove
+      </a>
+
+      <!-- Search Bar -->
+      <div class="form-inline ml-auto my-2 my-lg-0">
+        <input
+          type="search"
+          class="form-control form-control-sm ml-3"
+          placeholder="Search destinations..."
+          aria-label="Search"
+          [(ngModel)]="searchQuery"
+          (ngModelChange)="onSearchChange()"
+        />
+      </div>
+    </div>
+
+    <!-- Toggler for Mobile View -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navigation Links -->
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <!-- Public Navigation Links -->
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/destinations">Destination</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="tripsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Trips
+          </a>
+          <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="tripsDropdown">
+            <li><a class="dropdown-item" routerLink="/plan-trip">Plan Trip</a></li>
+            <li><a class="dropdown-item" routerLink="/join-trip-groups">Join Trip Groups</a></li>
+            <li><a class="dropdown-item" routerLink="/create-trip-groups">Create Trip Groups</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/admin">Admin</a>
+        </li>
+
+        <!-- Authentication Links -->
+        <li class="nav-item" *ngIf="!isLoggedIn()">
+          <button class="btn btn-primary ml-3" (click)="openLoginModal()">Sign In/Sign Up</button>
+        </li>
+        <li class="nav-item dropdown" *ngIf="isLoggedIn()">
+          <a class="nav-link dropdown-toggle" href="#" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fas fa-user"></i>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+            <li><a class="dropdown-item" routerLink="/wishlist">Favorites</a></li>
+            <li><a class="dropdown-item" routerLink="/trips">View Trips</a></li>
+            <li><a class="dropdown-item" routerLink="/user-itenrary">User plan Trips</a></li>
+
+           
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" (click)="logout()">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Login Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" [ngClass]="{'show': isLoginModalOpen}" [style.display]="isLoginModalOpen ? 'block' : 'none'">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Login</h5>
+        <button type="button" class="btn-close" (click)="closeModals()" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="loginUser()">
+          <div class="mb-3">
+            <label for="email" class="form-label">Email address</label>
+            <input type="email" class="form-control" [(ngModel)]="email" name="email" required>
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" [(ngModel)]="password" name="password" required>
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Login</button>
+        </form>
+        <p class="text-center mt-3">Don't have an account? <span class="text-primary" (click)="switchToRegister()">Register</span></p>
+        <div *ngIf="errorMessage" class="alert alert-danger mt-3">
+          {{ errorMessage }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Register Modal -->
+<div class="modal fade" id="registerModal" tabindex="-1" [ngClass]="{'show': isRegisterModalOpen}" [style.display]="isRegisterModalOpen ? 'block' : 'none'">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Register</h5>
+        <button type="button" class="btn-close" (click)="closeModals()" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="registerUser()">
+          <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" class="form-control" [(ngModel)]="username" name="username" required>
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email address</label>
+            <input type="email" class="form-control" [(ngModel)]="email" name="email" required>
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" [(ngModel)]="password" name="password" required>
+          </div>
+          <div class="mb-3">
+            <label for="confirmPassword" class="form-label">Confirm Password</label>
+            <input type="password" class="form-control" [(ngModel)]="confirmPassword" name="confirmPassword" required>
+          </div>
+          <button type="submit" class="btn btn-success w-100">Register</button>
+        </form>
+        <p class="text-center mt-3">Already have an account? <span  class="text-primary" (click)="switchToLogin()">Login</span></p>
+        <div *ngIf="errorMessage" class="alert alert-danger mt-3">
+          {{ errorMessage }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Backdrop -->
+<div class="modal-backdrop fade show" *ngIf="isLoginModalOpen || isRegisterModalOpen"></div>

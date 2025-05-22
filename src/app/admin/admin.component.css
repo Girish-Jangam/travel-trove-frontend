@@ -1,0 +1,113 @@
+/* Container */
+.container {
+  margin-top: 50px;
+}
+
+/* Headings */
+h2 {
+  font-size: 2rem;
+  color: #333;
+}
+
+/* Cards */
+.card {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  border: none;
+}
+
+.card-header {
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-align: center;
+  padding: 15px;
+  border-radius: 12px 12px 0 0;
+}
+
+/* Form Groups */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+label {
+  font-weight: bold;
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Buttons */
+.btn {
+  border-radius: 5px;
+  padding: 10px 15px;
+  font-size: 1rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-success:hover {
+  background-color: #28a745;
+  transform: scale(1.05);
+}
+
+.btn-danger:hover {
+  background-color: #dc3545;
+  transform: scale(1.05);
+}
+
+.btn-warning:hover {
+  background-color: #ffc107;
+  transform: scale(1.05);
+}
+
+.btn-secondary:hover {
+  background-color: #6c757d;
+  transform: scale(1.05);
+}
+
+/* List Group Items */
+.list-group-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.list-group-item:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Alerts */
+.alert {
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+/* Background Colors */
+.bg-lightblue {
+  background-color: #e3f2fd; /* Soft Blue */
+}
+
+.bg-lightgreen {
+  background-color: #e8f5e9; /* Soft Green */
+}
+
+.bg-lightyellow {
+  background-color: #fff9c4; /* Soft Yellow */
+}
+
+/* Success and Error Messages */
+.success-message {
+  color: green;
+  margin-top: 10px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.error-message {
+  color: red;
+  margin-top: 10px;
+  font-weight: bold;
+  text-align: center;
+}

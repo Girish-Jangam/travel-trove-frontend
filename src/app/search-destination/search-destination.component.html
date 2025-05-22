@@ -1,0 +1,12 @@
+<div class="container-fluid mt-4" id="bodyAll">
+  <div class="row hover-effect g-3 mt-3">
+    <div class="col-12 col-sm-6 col-md-3 mt-3" *ngFor="let des of filteredDestinations$ | async">
+      <app-card class="hover-effect" [card]="des"></app-card>
+    </div>
+  </div>
+
+  <!-- Red Alert for No Results -->
+  <div class="alert alert-danger mt-5" *ngIf="(filteredDestinations$ | async)?.length === 0 && (searchQuery$ | async)">
+    <strong>No destination found</strong> for "{{ searchQuery$ | async }}"
+  </div>
+</div>

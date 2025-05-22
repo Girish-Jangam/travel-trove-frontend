@@ -1,0 +1,27 @@
+<div class="container  g-3 mb-3">
+    <div class="row g-0 ">
+        <!-- Iterate over the airlinesArray to render the cards for all the airlines -->
+        <div class="card shadow  " style="opacity: 0.9;">
+
+            <img id="airlineImage" height="200px" class="card-img-top" [src]="'../../assets/IMAGES/'+card.photos[0]"
+                [alt]="card.id">
+            <i class="bi" [ngClass]="{
+              'bi-suit-heart-fill': isFavorite(card),
+              'bi-suit-heart': !isFavorite(card)
+            }" (click)="toggleFavorite(card)">
+            </i>
+            <div class="card-body text text-center">
+                <h6 id="cardTitle" style="font-family: inherit; font-size: inherit;">
+                    <!-- display the airlines name and airlines id as shown in the screenshots -->
+                    {{card.title}}
+                </h6>
+
+                <button class="btn btn-outline-dark btn-sm" (click)="loadProductDetails(card.id)">
+                    View more
+                </button>
+                <div class="flight-icon d-none" id="flight"></div>
+            </div>
+        </div>
+
+    </div>
+</div>

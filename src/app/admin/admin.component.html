@@ -1,0 +1,145 @@
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Admin Panel</h2>
+  <!-- Form for Adding/Editing Destination Guides -->
+  <div class="card shadow-lg mb-4">
+    <div class="card-header bg-primary text-white">
+      <h4 class="mb-0">{{ editingGuide ? 'Edit Destination Guide' : 'Add New Destination Guide' }}</h4>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="guideForm" (ngSubmit)="submitGuide()">
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input type="text" formControlName="title" class="form-control" id="title" placeholder="Enter title">
+        </div>
+        <div class="form-group">
+          <label for="summary">Summary</label>
+          <textarea formControlName="summary" class="form-control" id="summary" rows="3" placeholder="Enter summary"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="history">History</label>
+          <textarea formControlName="history" class="form-control" id="history" rows="3" placeholder="Enter history"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="culture">Culture</label>
+          <textarea formControlName="culture" class="form-control" id="culture" rows="3" placeholder="Enter culture"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="attractions">Attractions (comma-separated)</label>
+          <input type="text" formControlName="attractions" class="form-control" id="attractions" placeholder="Enter attractions">
+        </div>
+        <div class="form-group">
+          <label for="lodging">Lodging Recommendations (comma-separated)</label>
+          <input type="text" formControlName="lodging" class="form-control" id="lodging" placeholder="Enter lodging recommendations">
+        </div>
+        <div class="form-group">
+          <label for="dining">Dining Recommendations (comma-separated)</label>
+          <input type="text" formControlName="dining" class="form-control" id="dining" placeholder="Enter dining recommendations">
+        </div>
+        <div class="form-group">
+          <label for="activities">Activities Recommendations (comma-separated)</label>
+          <input type="text" formControlName="activities" class="form-control" id="activities" placeholder="Enter activities recommendations">
+        </div>
+        <div class="form-group">
+          <label for="photos">Photos (comma-separated URLs)</label>
+          <input type="text" formControlName="photos" class="form-control" id="photos" placeholder="Enter photo URLs">
+        </div>
+        <div class="d-flex justify-content-between">
+          <button type="submit" class="btn btn-success">
+            {{ editingGuide ? 'Update Guide' : 'Add Guide' }}
+          </button>
+          <button type="button" class="btn btn-secondary" (click)="clearForm()">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- Form for Adding/Editing Trip Itineraries -->
+  <div class="card shadow-lg mb-4">
+    <div class="card-header bg-primary text-white">
+      <h4 class="mb-0">{{ editingItinerary ? 'Edit Trip Itinerary' : 'Add New Trip Itinerary' }}</h4>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="itineraryForm" (ngSubmit)="submitItinerary()">
+        <div class="form-group">
+          <label for="destination">Destination</label>
+          <input type="text" formControlName="destination" class="form-control" id="destination" placeholder="Enter destination">
+        </div>
+        <div class="form-group">
+          <label for="duration">Duration</label>
+          <input type="number" formControlName="duration" class="form-control" id="duration" placeholder="Enter duration">
+        </div>
+        <div class="form-group">
+          <label for="activitiesItinerary">Activities (comma-separated)</label>
+          <input type="text" formControlName="activities" class="form-control" id="activitiesItinerary" placeholder="Enter activities">
+        </div>
+        <div class="form-group">
+          <label for="lodgingItinerary">Lodging (comma-separated)</label>
+          <input type="text" formControlName="lodging" class="form-control" id="lodgingItinerary" placeholder="Enter lodging">
+        </div>
+        <div class="form-group">
+          <label for="diningItinerary">Dining (comma-separated)</label>
+          <input type="text" formControlName="dining" class="form-control" id="diningItinerary" placeholder="Enter dining">
+        </div>
+        <div class="d-flex justify-content-between">
+          <button type="submit" class="btn btn-success">
+            {{ editingItinerary ? 'Update Itinerary' : 'Add Itinerary' }}
+          </button>
+          <button type="button" class="btn btn-secondary" (click)="clearItineraryForm()">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- Destination Guides List -->
+  <h3 class="mt-4 text-center">Destination Guides</h3>
+  <div class="card shadow-lg border-0 bg-lightblue">
+    <div class="card-body">
+      <div *ngFor="let guide of destinationGuides" class="list-group-item d-flex justify-content-between align-items-center bg-white border rounded p-3 mb-2">
+        <div>
+          <strong>{{ guide.title }}</strong> - {{ guide.summary }}
+        </div>
+        <div class="btn-group">
+          <button (click)="editGuide(guide)" class="btn btn-warning btn-sm">Edit</button>
+          <button (click)="deleteGuide(guide._id)" class="btn btn-danger btn-sm">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Trip Itineraries List -->
+  <h3 class="mt-4 text-center">Trip Itineraries</h3>
+  <div class="card shadow-lg border-0 bg-lightgreen">
+    <div class="card-body">
+      <div *ngFor="let itinerary of tripItineraries" class="list-group-item d-flex justify-content-between align-items-center bg-white border rounded p-3 mb-2">
+        <div>
+          <strong>{{ itinerary.destination }}</strong> - {{ itinerary.duration }} days
+        </div>
+        <div class="btn-group">
+          <button (click)="editItinerary(itinerary)" class="btn btn-warning btn-sm">Edit</button>
+          <button (click)="deleteItinerary(itinerary._id)" class="btn btn-danger btn-sm">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- User Reviews and Ratings -->
+  <!-- <h3 class="mt-4 text-center">User Reviews and Ratings</h3>
+  <div class="card shadow-lg border-0 bg-lightyellow">
+    <div class="card-body">
+      <div *ngFor="let guide of destinationGuidesWithReviews" class="mb-4">
+        <h4>{{ guide.title }}</h4>
+        <div *ngFor="let review of guide.reviews" class="alert alert-secondary d-flex justify-content-between align-items-center">
+          <div>
+            <strong>User:</strong> {{ review.user }}<br>
+            <strong>Rating:</strong> {{ review.rating }}/5<br>
+            <strong>Comment:</strong> {{ review.comment }}
+          </div>
+          <button (click)="deleteReview(guide.id, review.user)" class="btn btn-danger btn-sm">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div> -->
+  <!-- Success and Error Messages -->
+  <div *ngIf="successMessage" class="alert alert-success text-center">
+    {{ successMessage }}
+  </div>
+  <div *ngIf="errorMessage" class="alert alert-danger text-center">
+    {{ errorMessage }}
+  </div>
+</div>

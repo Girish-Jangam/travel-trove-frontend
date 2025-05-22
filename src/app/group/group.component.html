@@ -1,0 +1,100 @@
+<div class="travel-form-container">
+  <div class="form-card">
+    <h2 class="form-title">Create a New Travel Group</h2>
+
+    <form [formGroup]="createGroupForm" (ngSubmit)="onCreateGroupSubmit()" class="travel-form">
+      <!-- Group Name -->
+      <div class="mb-3">
+        <label for="name" class="form-label">Group Name</label>
+        <input
+          type="text"
+          class="form-control form-input"
+          id="name"
+          formControlName="name"
+          required
+          placeholder="e.g., 'Alpine Adventure Crew'"
+        />
+        <div 
+          *ngIf="createGroupForm.get('name')?.invalid && 
+                 (createGroupForm.get('name')?.dirty || createGroupForm.get('name')?.touched)" 
+          class="error-message"
+        >
+          Group name is required.
+        </div>
+      </div>
+
+      <!-- Description -->
+      <div class="mb-3">
+        <label for="description" class="form-label">Description (Optional)</label>
+        <textarea
+          class="form-control form-textarea"
+          id="description"
+          formControlName="description"
+          rows="4"
+          placeholder="Tell travelers about your journey..."
+        ></textarea>
+      </div>
+
+      <!-- Privacy -->
+      <div class="mb-3">
+        <h5 class="privacy-title">Privacy Settings</h5>
+        <div class="privacy-radio">
+          <div class="form-check form-check-inline">
+            <input
+              class="form-check-input"
+              type="radio"
+              [value]="true"
+              formControlName="isPublic"
+              id="public"
+            />
+            <label class="form-check-label" for="public">
+              Public
+              <small class="privacy-tooltip">Anyone can join</small>
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input
+              class="form-check-input"
+              type="radio"
+              [value]="false"
+              formControlName="isPublic"
+              id="private"
+            />
+            <label class="form-check-label" for="private">
+              Private
+              <small class="privacy-tooltip">Invite-only</small>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Buttons -->
+      <div class="d-flex justify-content-between">
+        <button 
+          type="submit" 
+          class="btn btn-primary submit-btn"
+          [disabled]="createGroupForm.invalid"
+        >
+          <span *ngIf="!isLoading">Create Group</span>
+          <span *ngIf="isLoading" class="spinner-border spinner-border-sm me-1"></span>
+          Loading...
+        </button>
+        <button 
+          class="btn btn-secondary" 
+          routerLink="/join-trip-groups"
+        >
+          Join a Group
+        </button>
+      </div>
+    </form>
+
+    <!-- Success/Error Messages -->
+    <div *ngIf="successMessage" class="alert alert-success mt-3">
+      {{ successMessage }}
+    </div>
+    <div *ngIf="errorMessage" class="alert alert-danger mt-3">
+      {{ errorMessage }}
+    </div>
+  </div>
+</div>
+

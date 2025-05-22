@@ -1,0 +1,248 @@
+.travel-join-container {
+  background-color: #f8f9fa;
+  /* Light background for the entire container */
+  padding: 2rem 0;
+  /* Padding for top and bottom */
+  background-image: url('../../assets/IMAGES/bgIMages1.jpg');
+
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.hero-section {
+  text-align: center;
+  background-color: #ffffff;
+  /* White background for hero section */
+  border-radius: 10px;
+  /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* Subtle shadow */
+  padding: 2rem;
+  /* Padding for content */
+}
+
+.hero-section h2 {
+  color: #007bff;
+  /* Primary blue color for heading */
+}
+
+.groups-grid {
+  padding: 2rem 0;
+  /* Padding for the grid */
+}
+
+.group-card {
+  border-radius: 10px;
+  /* Rounded corners */
+  overflow: hidden;
+  /* Ensures no content overflows */
+  background-color: #ffffff;
+  /* White background for the card */
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  /* Smooth transitions */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* Subtle shadow */
+}
+
+.group-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  /* Larger shadow on hover */
+}
+
+.group-header {
+  background-color: #007bff;
+  /* Primary blue background for header */
+  color: #ffffff;
+  /* White text for header */
+  border-bottom: 1px solid #dee2e6;
+  /* Border for separation */
+  padding: 1rem;
+  /* Padding for header content */
+}
+
+.group-header h3 {
+  margin: 0;
+  /* Remove default margin */
+  font-size: 1.25rem;
+  /* Larger font size for the title */
+}
+
+.group-description {
+  font-size: 0.9rem;
+  /* Smaller font size for description */
+  color: #555;
+  /* Medium text color for readability */
+  margin-bottom: 1rem;
+  /* Margin for spacing */
+}
+
+.join-btn,
+.unjoin-btn,
+.chat-btn {
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.join-btn:hover {
+  background-color: #0056b3;
+  /* Darker blue on hover */
+  box-shadow: 0 6px 12px rgba(0, 86, 179, 0.3);
+  /* Larger shadow on hover */
+  transform: translateY(-2px);
+  /* Slight lift on hover */
+}
+
+.unjoin-btn:hover {
+  background-color: #c82333;
+  /* Darker red on hover */
+  box-shadow: 0 6px 12px rgba(200, 35, 51, 0.3);
+  /* Larger shadow on hover */
+  transform: translateY(-2px);
+  /* Slight lift on hover */
+}
+
+.chat-btn:hover {
+  background-color: #218838;
+  /* Darker green on hover */
+  box-shadow: 0 6px 12px rgba(33, 136, 56, 0.3);
+  /* Larger shadow on hover */
+  transform: translateY(-2px);
+  /* Slight lift on hover */
+}
+
+.loading-overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  /* Fixed height for loading overlay */
+}
+
+.lds-spinner {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.lds-spinner div {
+  transform-origin: 40px 40px;
+  animation: lds-spinner 1.2s linear infinite;
+}
+
+.lds-spinner div:after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 3px;
+  left: 37px;
+  width: 6px;
+  height: 18px;
+  border-radius: 20%;
+  background: #343a40;
+}
+
+.lds-spinner div:nth-child(1) {
+  transform: rotate(0deg);
+  animation-delay: -1.1s;
+}
+
+.lds-spinner div:nth-child(2) {
+  transform: rotate(30deg);
+  animation-delay: -1s;
+}
+
+.lds-spinner div:nth-child(3) {
+  transform: rotate(60deg);
+  animation-delay: -0.9s;
+}
+
+.lds-spinner div:nth-child(4) {
+  transform: rotate(90deg);
+  animation-delay: -0.8s;
+}
+
+.lds-spinner div:nth-child(5) {
+  transform: rotate(120deg);
+  animation-delay: -0.7s;
+}
+
+.lds-spinner div:nth-child(6) {
+  transform: rotate(150deg);
+  animation-delay: -0.6s;
+}
+
+.lds-spinner div:nth-child(7) {
+  transform: rotate(180deg);
+  animation-delay: -0.5s;
+}
+
+.lds-spinner div:nth-child(8) {
+  transform: rotate(210deg);
+  animation-delay: -0.4s;
+}
+
+.lds-spinner div:nth-child(9) {
+  transform: rotate(240deg);
+  animation-delay: -0.3s;
+}
+
+.lds-spinner div:nth-child(10) {
+  transform: rotate(270deg);
+  animation-delay: -0.2s;
+}
+
+.lds-spinner div:nth-child(11) {
+  transform: rotate(300deg);
+  animation-delay: -0.1s;
+}
+
+.lds-spinner div:nth-child(12) {
+  transform: rotate(330deg);
+  animation-delay: 0s;
+}
+
+@keyframes lds-spinner {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.message-container {
+  padding: 1rem 0;
+  /* Padding for message container */
+}
+
+.alert {
+  border-radius: 10px;
+  /* Rounded corners for alerts */
+  padding: 1rem;
+  /* Padding for alert content */
+}
+
+.alert svg {
+  vertical-align: middle;
+  /* Align SVG icon vertically */
+}
+
+.alert-success {
+  background-color: #d4edda;
+  /* Light green background */
+  border-color: #c3e6cb;
+  /* Green border */
+  color: #155724;
+  /* Dark green text */
+}
+
+.alert-danger {
+  background-color: #f8d7da;
+  /* Light red background */
+  border-color: #f5c6cb;
+  /* Red border */
+  color: #721c24;
+  /* Dark red text */
+}

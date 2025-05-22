@@ -1,0 +1,38 @@
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+  <!-- Admin Login Card -->
+  <div class="card shadow-lg rounded-3 p-4" style="max-width: 400px; width: 100%;">
+
+    <h3 class="text-center mb-4"
+    style="color: #008080; border-radius: 15px; font-weight: bold;">Admin Login</h3>
+
+    <form (ngSubmit)="onLogin()">
+      
+      <!-- Email Input Field -->
+      <div class="form-group mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" id="email" [(ngModel)]="email" name="email" class="form-control shadow-none" placeholder="Enter your email" required />
+      </div>
+
+      <!-- Password Input Field -->
+      <div class="form-group mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" id="password" [(ngModel)]="password" name="password" class="form-control shadow-none" placeholder="Enter your password" required />
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" class="btn btn-primary w-100 py-2 mt-3 p-1" [disabled]="!email || !password"
+      style="background-color: #008080; border-radius: 15px; color: white; font-weight: bold;">
+        Login
+      </button>
+      
+      <!-- Error Message -->
+      <div *ngIf="errorMessage" class="alert alert-danger mt-3">
+        {{ errorMessage }}
+      </div>
+      
+    </form>
+    
+    
+
+  </div>
+</div>

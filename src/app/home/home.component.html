@@ -1,0 +1,72 @@
+<div class="container-fluid homeMain mt-20">
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Discover Your Next Adventure</h1>
+      <p>Explore amazing destinations and plan your perfect trip with TravelTrove.</p>
+      
+    </div>
+
+     <!-- Search Bar with Suggestions -->
+  <div class="search-bar">
+    <input 
+      type="text" 
+      [(ngModel)]="searchQuery" 
+      (input)="onSearch(searchQuery)" 
+      placeholder="Search destinations..." 
+      class="form-control">
+    
+    <!-- Show suggestions if there are any -->
+    <div *ngIf="(filteredDestinations$ | async) as filteredDestinations">
+      <div *ngIf="shouldShowSuggestions(filteredDestinations, searchQuery)" class="suggestions-list">
+        <ul>
+          <li *ngFor="let suggestion of filteredDestinations" 
+              (click)="navigateToDestination(suggestion.id)">
+            {{ suggestion.title }}
+          </li>
+        </ul>
+      </div>
+      <div *ngIf="shouldShowNoResults(filteredDestinations, searchQuery)" class="no-results">
+        No results found for "{{ searchQuery }}"
+      </div>
+    </div>
+  </div>
+
+  </section>
+
+  <!-- Image Carousel (Hero Banner) -->
+  <section class="carousel">
+    <div class="carousel-container">
+      <div *ngFor="let slide of slides; let i = index" class="carousel-slide"
+           [ngClass]="{'active': currentSlide === i}">
+        <img [src]="slide" alt="destination{{ i + 1 }}" />
+      </div>
+    </div>
+  </section>
+
+ 
+  <!-- Featured Destinations Section -->
+  <section class="featured-destinations">
+    <h2 class="mt-5 mb-5">Explore Destinations</h2>
+    <div class="destinations-grid" *ngIf="(destinations$ | async) as destinations; else loading">
+      <div class="destination-card" *ngFor="let destination of destinations">
+        <div class="image-container" [ngStyle]="{'background-image': 'url(../../assets/IMAGES/' + destination.photos[0] + ')'}">
+          <div class="overlay">
+            <p class="summary">{{ destination.summary }}</p>
+            <a href="#" class="btn btn-primary" (click)="navigateToDestination(destination.id)">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ng-template #loading>
+      <div class="text-center">
+        <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    </ng-template>
+  </section>
+
+  <!-- Reviews Section -->
+  <app-review></app-review>
+</div>

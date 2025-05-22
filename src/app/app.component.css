@@ -1,0 +1,156 @@
+.navbar {
+  height: 70px; /* Set a consistent height */
+  position: fixed; 
+  top: 0;
+  width: 100%;
+  /*background: rgba(255, 255, 255, 0.5) !important;  Transparent background */
+  /*z-index: 1000;  Ensure the navbar is above other content */
+  /* border: none !important; */
+  /* box-shadow: none !important; */
+  /*outline: none !important;  Remove any outlines */
+}
+
+
+.container-fluid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%; /* Make the container take full height */
+  /*outline: none;  Remove any outlines */
+}
+
+.navbar-brand {
+  margin: 0;
+/*    outline: none;  Remove any outlines */
+}
+
+.navbar-nav {
+  display: flex;
+  align-items: center;
+  /*outline: none;  Remove any outlines */
+}
+
+.nav-link {
+  margin-left: 1rem;
+  /*outline: none;  Remove any outlines */
+}
+
+/* background image setting */
+body{
+  background-image: url("../assets/TravelImage3.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Footer */
+/* General Footer Styling */
+.footer {
+background-color: #232323;
+color: white;
+padding: 40px 20px;
+position: relative;
+bottom: -26;
+width: 100%;
+}
+
+.footer-logo {
+width: 120px;
+height: auto;
+margin-bottom: 15px;
+}
+
+.footer-title {
+font-size: 1.6rem;
+color: white;
+margin-bottom: 5px;
+}
+
+.footer-message {
+font-size: 1.1rem;
+color: #bbb;
+font-style: italic;
+margin-bottom: 15px;
+}
+
+/* Footer Headings */
+.footer-heading {
+font-size: 1.2rem;
+font-weight: bold;
+margin-bottom: 15px;
+}
+
+/* Footer Links */
+.footer-links, .footer-account-links {
+list-style: none;
+padding-left: 0;
+}
+
+.footer-links li, .footer-account-links li {
+margin: 10px 0;
+}
+
+.footer-links a, .footer-account-links a {
+color: #bbb;
+font-size: 1rem;
+text-decoration: none;
+display: block;
+margin: 5px 0;
+}
+
+.footer-links a:hover, .footer-account-links a:hover {
+color: #ff6347;
+}
+
+/* Footer Social Icons */
+.footer-social-icons {
+display: flex;
+justify-content: space-around;
+}
+
+.footer-social-icons .social-icon {
+color: #bbb;
+font-size: 1.5rem;
+margin: 10px;
+}
+
+.footer-social-icons .social-icon:hover {
+color: #ff6347;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+margin-top: 35px;
+font-size: 0.9rem;
+color: #bbb;
+}
+
+.footer-bottom p {
+margin: 0;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+.footer .row {
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-links, .footer-social-icons, .footer-account-links {
+  text-align: center;
+}
+}
+
+@media (max-width: 576px) {
+.footer-logo {
+  width: 100px;
+}
+
+.footer-title {
+  font-size: 1.4rem;
+}
+
+.footer-message {
+  font-size: 1rem;
+}
+}
+

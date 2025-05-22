@@ -1,0 +1,87 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-body">
+          <h2 class="text-center mb-4 text-primary">Create Your Trip Itinerary</h2>
+          <form [formGroup]="tripForm" (ngSubmit)="submitUser()" class="needs-validation" novalidate>
+            <div class="form-group">
+              <label for="itinerary" class="form-label">Select Itinerary</label>
+              <select formControlName="itinerary" class="form-control" (change)="onItineraryChange()">
+                <option value="" disabled selected>Select an itinerary</option>
+                <option *ngFor="let itinerary of tripItineraries" [value]="itinerary.id">
+                  {{ itinerary.destination }}
+                </option>
+              </select>
+              <div
+                *ngIf="tripForm.get('itinerary')?.invalid && (tripForm.get('itinerary')?.dirty || tripForm.get('itinerary')?.touched)"
+                class="invalid-feedback">
+                Please select an itinerary.
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="startDate" class="form-label">Start Date</label>
+              <input type="date" formControlName="startDate" class="form-control" id="startDate">
+              <div
+                *ngIf="tripForm.get('startDate')?.invalid && (tripForm.get('startDate')?.dirty || tripForm.get('startDate')?.touched)"
+                class="invalid-feedback">
+                Please select a start date.
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="endDate" class="form-label">End Date</label>
+              <input type="date" formControlName="endDate" class="form-control" id="endDate">
+              <div
+                *ngIf="tripForm.get('endDate')?.invalid && (tripForm.get('endDate')?.dirty || tripForm.get('endDate')?.touched)"
+                class="invalid-feedback">
+                Please select an end date.
+              </div>
+            </div>
+
+            <div *ngIf="selectedItinerary">
+              <div class="form-group">
+                <label>Activities</label>
+                <div *ngFor="let activity of selectedItinerary.activities" class="form-check">
+                  <input type="checkbox" class="form-check-input" [value]="activity" formControlName="activities"
+                    [checked]="tripForm.get('activities')?.value?.includes(activity)">
+                  <label class="form-check-label">{{ activity }}</label>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>Lodging</label>
+                <div *ngFor="let lodging of selectedItinerary.lodging" class="form-check">
+                  <input type="checkbox" class="form-check-input" [value]="lodging" formControlName="lodging"
+                    [checked]="tripForm.get('lodging')?.value?.includes(lodging)">
+                  <label class="form-check-label">{{ lodging }}</label>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>Dining</label>
+                <div *ngFor="let dining of selectedItinerary.dining" class="form-check">
+                  <input type="checkbox" class="form-check-input" [value]="dining" formControlName="dining"
+                    [checked]="tripForm.get('dining')?.value?.includes(dining)">
+                  <label class="form-check-label">{{ dining }}</label>
+                </div>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block mt-3"
+              [disabled]="tripForm.invalid || !selectedItinerary">Submit</button>
+          </form>
+
+          <div *ngIf="successMessage" class="alert alert-success mt-3 text-center">
+            {{ successMessage }}
+          </div>
+
+          <div *ngIf="errorMessage" class="alert alert-danger mt-3 text-center">
+            {{ errorMessage }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

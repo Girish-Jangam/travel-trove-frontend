@@ -1,0 +1,109 @@
+.container {
+  margin-top: 50px; /* Optional: Keep if you want extra margin */
+  background-color: #f8f9fa; /* Light background for the entire container */
+  padding: 2rem 0; /* Padding for top and bottom */
+}
+
+.card {
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-body {
+  padding: 2rem;
+}
+
+h2 {
+  font-size: 2rem;
+  color: #007bff;
+  text-align: center;
+}
+
+.form-group,
+.mb-3 {
+  margin-bottom: 1.5rem;
+}
+
+label {
+  font-weight: bold;
+  font-size: 1rem;
+  color: #555;
+}
+
+.form-check-label {
+  font-size: 1rem;
+  color: #333;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+  padding: 10px 15px;
+  font-size: 1rem;
+  border-radius: 5px;
+  width: 100%;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  box-shadow: 0 6px 12px rgba(0, 86, 179, 0.3);
+}
+
+.btn-primary:disabled {
+  background-color: #cccccc;
+  border-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.form-control {
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+  border-color: #007bff;
+}
+
+.invalid-feedback {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.875em;
+  color: #dc3545;
+}
+
+.alert {
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+}
+
+.alert svg {
+  vertical-align: middle;
+}
+
+.alert-success {
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+  color: #155724;
+}
+
+.alert-danger {
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+  color: #721c24;
+}
+
+.spinner-border {
+  width: 3rem;
+  height: 3rem;
+}

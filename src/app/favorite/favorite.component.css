@@ -1,0 +1,71 @@
+.card {
+  position: relative; /* This ensures that the icon is positioned relative to the card */
+  margin-bottom: 15px; /* Add space between each card */
+}
+
+.card .bi {
+  position: absolute;
+  top: 10px; /* Adjust this value to move the icon closer/further from the top */
+  right: 10px; /* Adjust this value to move the icon closer/further from the right */
+  font-size: 24px; /* Adjust the size of the heart icon */
+  cursor: pointer; /* Changes cursor to a pointer when hovering over the icon */
+  transition: color 0.3s ease, transform 0.2s ease; /* Smooth transitions for color and scaling */
+}
+
+.card .card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+
+.card .bi:hover {
+  transform: scale(1.2); /* Slightly enlarge the icon on hover */
+  color: #ff6b6b; /* Change the color on hover (optional, you can choose any color) */
+}
+
+.card .bi-suit-heart {
+  color: #aaa; /* Color for the empty heart */
+}
+
+.card .bi-suit-heart-fill {
+  color: #e74c3c; /* Color for the filled heart (you can change this color) */
+}
+
+.row {
+  gap: 15px; /* Adds spacing between columns */
+}
+
+.col-12 {
+  margin-bottom: 20px; /* Adds spacing to the bottom of each card */
+}
+
+
+.no-favorites-message {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #f8f9fa;  /* Light background */
+  border: 1px solid #d6d6d6;  /* Subtle border */
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Soft shadow for depth */
+  margin-top: 20px;
+}
+
+.no-favorites-message i {
+  color: #dc3545;  /* Red color for the broken heart icon */
+  margin-bottom: 15px;
+}
+
+.no-favorites-message p {
+  font-size: 1.2rem;
+  color: #6c757d;  /* Grey color for the text */
+  font-weight: 500;
+}
+
+
